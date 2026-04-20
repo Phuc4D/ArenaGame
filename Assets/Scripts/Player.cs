@@ -36,4 +36,5 @@ public class Player : MonoBehaviour
         // Thay vì viết cả cụm if/else dài dòng
         animator.SetBool("isRun", playerInput != Vector2.zero);
     }
+    
 }
