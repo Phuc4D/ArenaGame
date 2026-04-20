@@ -1,0 +1,21 @@
+# Bỏ qua các thư mục tạm và cache của Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+
+# Bỏ qua các file cấu hình cá nhân của IDE (VS Code, Visual Studio)
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.sln
+
+# Bỏ qua các file build và crash
+*.apk
+*.aab
+*.unitypackage
+crashlytics-build.properties
