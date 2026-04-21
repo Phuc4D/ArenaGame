@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float shotDelay = 0.15f;
     [SerializeField] private int maxAmmo = 24;
     private float nextShot;
-    private bool isReload = false;
+    public bool isReload = false;
     [SerializeField] private float reloadDelay = 0.5f;
     private float reloadTime;
 

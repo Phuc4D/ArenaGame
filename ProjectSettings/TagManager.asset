@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - PlayerBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -39,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 1160785061
+    locked: 0
+  - name: Grass
+    uniqueID: 242272947
+    locked: 0
+  - name: Tree
+    uniqueID: 3331140159
+    locked: 0
+  - name: Rock
+    uniqueID: 4158268469
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -47,6 +60,9 @@ TagManager:
     locked: 0
   - name: PlayerBullet
     uniqueID: 2731314287
+    locked: 0
+  - name: Enemy
+    uniqueID: 552092117
     locked: 0
   - name: Gun
     uniqueID: 4217502993
