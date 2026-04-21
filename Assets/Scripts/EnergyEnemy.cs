@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class BasicEnemy : Enemy
-{
-    [SerializeField] private GameObject energyOrb;
-    protected override void Start()
+public class EnergyEnemy : Enemy
+{    [SerializeField] private GameObject energyOrb;
+
+      protected override void Start()
     {
         base.Start();
-        damage = 10f; // Thiết lập sát thương cho BasicEnemy
+        damage = 20f; // Thiết lập sát thương cho BasicEnemy
     }
     protected override void Die()
     {

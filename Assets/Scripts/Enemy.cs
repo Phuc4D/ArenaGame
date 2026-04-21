@@ -7,13 +7,14 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float enemyMoveSpeed = 1f;
     [SerializeField] protected float maxHealth = 50f;
     protected float currentHealth = 50f;
-    private Image hpBar;
+     [SerializeField]private Image hpBar;
     protected Player player;
+    protected float damage;
     protected virtual void Start()
     {
         player = FindAnyObjectByType<Player>();
         currentHealth = maxHealth;
-                UpdatHpBar();
+                UpdateHpBar();
 
     }
     protected virtual void Update()
@@ -39,7 +40,7 @@ public abstract class Enemy : MonoBehaviour
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdatHpBar();
+        UpdateHpBar();
         if (currentHealth <= 0)
         {
             Die();
@@ -49,18 +50,19 @@ public abstract class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    protected void UpdatHpBar()
+    protected void UpdateHpBar()
     {
         if(hpBar!= null)
         {
             hpBar.fillAmount = currentHealth/maxHealth;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            player.TakeDamage();
+            player.TakeDamage(damage);
+            Die();
         }
     }
 

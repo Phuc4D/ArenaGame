@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
-        [SerializeField] private int health = 100;
+        [SerializeField] private float maxHealth = 100f;
+        private float currentHealth;
+        [SerializeField] private Image hpBar;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -16,7 +19,8 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-
+        currentHealth = maxHealth;
+        UpdateHpBar();
     }
 
     void Update()
@@ -38,14 +42,27 @@ public class Player : MonoBehaviour
         // Thay vì viết cả cụm if/else dài dòng
         animator.SetBool("isRun", playerInput != Vector2.zero);
     }
-        public virtual void TakeDamage()
+        public virtual void TakeDamage(float damage)
     {
-        // Xử lý khi nhân vật bị tấn công
-        Die();
-    }
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHpBar();
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+    
     public virtual void Die()
     {
         // Xử lý khi nhân vật bị tấn công
         Destroy(gameObject);
+    }
+    protected void UpdateHpBar()
+    {
+        if(hpBar!= null)
+        {
+            hpBar.fillAmount = currentHealth/maxHealth;
+        }
     }
 }
