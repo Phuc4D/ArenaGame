@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected float enemyMoveSpeed = 1f;
-    [SerializeField] protected float maxHealth = 50f;
-    protected float currentHealth = 50f;
+    [SerializeField] protected float maxHealth ;
+    protected float currentHealth;
      [SerializeField]private Image hpBar;
     protected Player player;
-    protected float damage;
+    [SerializeField] protected float damage;
     protected virtual void Start()
     {
         player = FindAnyObjectByType<Player>();

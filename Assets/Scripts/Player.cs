@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
-        [SerializeField] private float maxHealth = 100f;
-        private float currentHealth;
-        [SerializeField] private Image hpBar;
+    [SerializeField] private float maxHealth = 100f;
+    private float currentHealth;
+    [SerializeField] private Image hpBar;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -42,17 +42,17 @@ public class Player : MonoBehaviour
         // Thay vì viết cả cụm if/else dài dòng
         animator.SetBool("isRun", playerInput != Vector2.zero);
     }
-        public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHpBar();
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
+        if (currentHealth <= 0)
+        {
+            Die();
         }
-    
+    }
+
     public virtual void Die()
     {
         // Xử lý khi nhân vật bị tấn công
@@ -60,9 +60,19 @@ public class Player : MonoBehaviour
     }
     protected void UpdateHpBar()
     {
-        if(hpBar!= null)
+        if (hpBar != null)
         {
-            hpBar.fillAmount = currentHealth/maxHealth;
+            hpBar.fillAmount = currentHealth / maxHealth;
         }
+    }
+    public void Heal(float healvalue)
+    {
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += healvalue;
+            currentHealth = Mathf.Min(currentHealth,maxHealth);
+            UpdateHpBar();
+        }
+
     }
 }

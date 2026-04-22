@@ -6,7 +6,8 @@ public class EnergyEnemy : Enemy
       protected override void Start()
     {
         base.Start();
-        damage = 20f; // Thiết lập sát thương cho BasicEnemy
+        maxHealth = 40f; // Thiết lập máu tối đa cho EnergyEnemy
+        damage = 10f; // Thiết lập sát thương cho BasicEnemy
     }
     protected override void Die()
     {
