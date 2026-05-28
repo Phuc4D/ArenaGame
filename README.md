@@ -7,7 +7,7 @@
 ![Platform](https://img.shields.io/badge/Platform-PC-blue)
 ![Status](https://img.shields.io/badge/Status-Prototype-orange)
 
-**[View Source](https://github.com/Phuc4D/ArenaGame)**
+**[▶ Play in Browser](https://phuc4d.itch.io/arenagame)** · **[View Source](https://github.com/Phuc4D/ArenaGame)**
 
 ---
 
